@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="دليلي - منصة طلاب البكالوريا السورية: كتب PDF، أسئلة الدورات، ومؤقت امتحان البكالوريا 2027" />
+  <meta name="theme-color" content="#1e3a8a" />
+  <title>دليلي | منصة طلاب البكالوريا السورية</title>
+
+  <!-- خطوط جوجل العربية -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+  <!-- أيقونات Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ===== المتغيرات العامة ===== */
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b5bdb;
+      --primary-dark: #172554;
+      --accent: #f59e0b;
+      --accent-light: #fbbf24;
+      --bg: #f8fafc;
+      --bg-alt: #eef2f7;
+      --card: #ffffff;
+      --text: #0f172a;
+      --text-soft: #475569;
+      --text-muted: #94a3b8;
+      --border: #e2e8f0;
+      --success: #10b981;
+      --danger: #ef4444;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow: 0 6px 24px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 18px 50px rgba(15, 23, 42, 0.12);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --radius-lg: 24px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --max: 1200px;
+    }
+
+    /* ===== إعادة الضبط ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+    body {
+      font-family: 'Cairo', 'Tajawal', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul { list-style: none; }
+
+    .container {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section { padding: 80px 0; }
+
+    /* ===== شريط التنقل ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: saturate(180%) blur(14px);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 1.3rem;
+      box-shadow: 0 6px 16px rgba(30, 58, 138, 0.35);
+    }
+
+    .logo-mark i { transform: rotate(-10deg); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links a {
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      background: var(--bg-alt);
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff !important;
+      padding: 10px 20px !important;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(30, 58, 138, 0.25);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(30, 58, 138, 0.35);
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important;
+    }
+
+    .nav-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--text);
+      padding: 8px;
+    }
+
+    /* ===== قسم Hero ===== */
+    .hero {
+      position: relative;
+      padding: 140px 0 90px;
+      background:
+        radial-gradient(1200px 500px at 80% -10%, rgba(245, 158, 11, 0.18), transparent 60%),
+        radial-gradient(1000px 600px at 10% 10%, rgba(59, 130, 246, 0.22), transparent 55%),
+        linear-gradient(160deg, #0f172a 0%, #172554 45%, #1e3a8a 100%);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.16);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: var(--accent-light);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge .dot {
+      width: 8px; height: 8px;
+      background: var(--accent-light);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(251, 191, 36, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(120deg, var(--accent-light), #fcd34d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.82);
+      max-width: 560px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #1f2937;
+      box-shadow: 0 10px 26px rgba(245, 158, 11, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(245, 158, 11, 0.45);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(6px);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.16);
+      transform: translateY(-3px);
+    }
+
+    /* ===== بطاقة المؤقت ===== */
+    .countdown-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(14px);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .countdown-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .countdown-head h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    .countdown-head .tag {
+      background: rgba(239, 68, 68, 0.18);
+      color: #fecaca;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .cd-unit {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius);
+      padding: 18px 8px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .cd-unit:hover {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+
+    .cd-num {
+      font-family: 'Cairo', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 6px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cd-label {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 600;
+    }
+
+    .exam-date {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .exam-date i { color: var(--accent-light); }
+
+    /* ===== إحصائيات ===== */
+    .stats {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 40px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      color: var(--text-soft);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* ===== عناوين الأقسام ===== */
+    .section-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 50px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(30, 58, 138, 0.08);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      color: var(--text-soft);
+      font-size: 1.05rem;
+    }
+
+    /* ===== قسم الكتب ===== */
+    .books { background: var(--bg); }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: 12px 26px;
+      border-radius: 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+      font-weight: 700;
+      font-size: 0.98rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab:hover { border-color: var(--primary-light); color: var(--primary); }
+
+    .tab.active {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 8px 20px rgba(30, 58, 138, 0.25);
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .book-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .book-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-light);
+    }
+
+    .book-cover {
+      aspect-ratio: 3 / 4;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      position: relative;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .book-cover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.2), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.3), transparent 55%);
+    }
+
+    .book-cover i {
+      font-size: 3rem;
+      position: relative;
+      z-index: 1;
+      opacity: 0.85;
+    }
+
+    .book-cover .subject-name {
+      position: relative;
+      z-index: 1;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-top: 12px;
+      text-align: center;
+      padding: 0 14px;
+    }
+
+    .book-cover .stream-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.22);
+      backdrop-filter: blur(6px);
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      z-index: 2;
+    }
+
+    .book-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+    }
+
+    .book-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .book-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .book-meta span { display: inline-flex; align-items: center; gap: 5px; }
+
+    .book-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .book-btn {
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-open {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-open:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+    .btn-download {
+      background: var(--bg-alt);
+      color: var(--text-soft);
+      border: 1px solid var(--border);
+    }
+    .btn-download:hover { background: var(--primary); color: #fff; border-color: transparent; }
+
+    /* ألوان مختلفة لأغلفة الكتب */
+    .cover-1 { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
+    .cover-2 { background: linear-gradient(135deg, #064e3b, #10b981); }
+    .cover-3 { background: linear-gradient(135deg, #7c2d12, #f97316); }
+    .cover-4 { background: linear-gradient(135deg, #581c87, #a855f7); }
+    .cover-5 { background: linear-gradient(135deg, #831843, #ec4899); }
+    .cover-6 { background: linear-gradient(135deg, #0c4a6e, #0ea5e9); }
+    .cover-7 { background: linear-gradient(135deg, #713f12, #eab308); }
+    .cover-8 { background: linear-gradient(135deg, #134e4a, #14b8a6); }
+    .cover-9 { background: linear-gradient(135deg, #1e1b4b, #6366f1); }
+
+    /* ===== قسم أسئلة الدورات ===== */
+    .questions { background: linear-gradient(180deg, #fff, var(--bg-alt)); }
+
+    .q-filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .filter-chip {
+      padding: 8px 18px;
+      border-radius: 100px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .filter-chip:hover, .filter-chip.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .q-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .q-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .q-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent);
+    }
+
+    .q-thumb {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .q-thumb .placeholder {
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .q-thumb .placeholder i {
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .q-thumb .placeholder span {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .q-year {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--accent);
+      color: #1f2937;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .q-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .q-subject {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: rgba(30, 58, 138, 0.08);
+      padding: 4px 10px;
+      border-radius: 6px;
+      width: fit-content;
+    }
+
+    .q-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .q-meta {
+      display: flex;
+      gap: 14px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .q-meta span { display: inline-flex; align-items: center; gap: 5px; }
+
+    .q-link {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      background: var(--bg-alt);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-align: center;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .q-link:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* ===== قسم المزايا ===== */
+    .features { background: var(--card); }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .feature {
+      padding: 30px 24px;
+      border-radius: var(--radius);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature::before {
+      content: "";
+      position: absolute;
+      top: 0; right: 0;
+      width: 60px; height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 0 0 0 60px;
+      opacity: 0.08;
+      transition: var(--transition);
+    }
+
+    .feature:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--primary-light);
+    }
+
+    .feature:hover::before { opacity: 0.18; width: 90px; height: 90px; }
+
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 18px rgba(30, 58, 138, 0.22);
+    }
+
+    .feature h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .feature p {
+      color: var(--text-soft);
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    /* ===== قسم CTA ===== */
+    .cta-band {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 50px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(245, 158, 11, 0.25), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.25), transparent 50%);
+    }
+
+    .cta-band > * { position: relative; z-index: 1; }
+
+    .cta-band h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .cta-band p {
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 24px;
+      max-width: 560px;
+      margin-inline: auto;
+    }
+
+    /* ===== التذييل ===== */
+    footer {
+      background: var(--primary-dark);
+      color: rgba(255,255,255,0.78);
+      padding: 60px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand .logo { color: #fff; margin-bottom: 16px; }
+    .footer-brand p { color: rgba(255,255,255,0.65); font-size: 0.95rem; }
+
+    .footer-col h4 {
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.65);
+      transition: var(--transition);
+      font-size: 0.94rem;
+    }
+    .footer-col ul li a:hover { color: var(--accent-light); padding-right: 4px; }
+
+    .social {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .social a {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      transition: var(--transition);
+    }
+
+    .social a:hover {
+      background: var(--accent);
+      color: #1f2937;
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .footer-bottom strong { color: var(--accent-light); }
+
+    /* ===== زر العودة للأعلى ===== */
+    .to-top {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--primary);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 900;
+    }
+
+    .to-top.show { opacity: 1; visibility: visible; }
+    .to-top:hover { background: var(--primary-dark); transform: translateY(-3px); }
+
+    /* ===== تصميم متجاوب ===== */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        position: fixed;
+        top: 72px;
+        right: -100%;
+        flex-direction: column;
+        width: 80%;
+        max-width: 320px;
+        height: calc(100vh - 72px);
+        background: #fff;
+        padding: 24px 16px;
+        gap: 6px;
+        align-items: stretch;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        transition: right 0.35s ease;
+      }
+      .nav-links.open { right: 0; }
+      .nav-links a { padding: 14px 16px; }
+      .nav-toggle { display: block; }
+      section { padding: 60px 0; }
+      .countdown { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .book-actions { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 110px 0 70px; }
+      .countdown-card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== شريط التنقل ===== -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">
+        <span class="logo-mark"><i class="fa-solid fa-book-open-reader"></i></span>
+        <span>دليلي</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#books">الكتب</a></li>
+        <li><a href="#questions">أسئلة الدورات</a></li>
+        <li><a href="#features">المزايا</a></li>
+        <li><a href="#books" class="nav-cta">ابدأ التعلّم</a></li>
+      </ul>
+
+      <button class="nav-toggle" id="navToggle" aria-label="القائمة">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== قسم Hero ===== -->
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="hero-badge">
+            <span class="dot"></span>
+            منصة طلاب البكالوريا السورية
+          </span>
+          <h1>رحلتك نحو <span class="highlight">التفوق في البكالوريا</span> تبدأ من هنا</h1>
+          <p>دليلك الشامل لكل مواد البكالوريا السورية: كتب PDF لكل المواد، أسئلة الدورات السابقة، ومؤقت تنازلي يذكّرك بامتحان 2027. كل ما تحتاجه في مكان واحد.</p>
+          <div class="hero-actions">
+            <a href="#books" class="btn btn-primary">
+              <i class="fa-solid fa-book"></i>
+              تصفّح الكتب
+            </a>
+            <a href="#questions" class="btn btn-ghost">
+              <i class="fa-solid fa-file-pen"></i>
+              أسئلة الدورات
+            </a>
+          </div>
+        </div>
+
+        <!-- بطاقة المؤقت التنازلي -->
+        <div class="countdown-card">
+          <div class="countdown-head">
+            <h3><i class="fa-solid fa-hourglass-half" style="color: var(--accent-light); margin-left: 8px;"></i> الامتحان الوطني للبكالوريا</h3>
+            <span class="tag">2027</span>
+          </div>
+
+          <div class="countdown" id="countdown">
+            <div class="cd-unit">
+              <div class="cd-num" id="cdDays">00</div>
+              <div class="cd-label">يوم</div>
+            </div>
+            <div class="cd-unit">
+              <div class="cd-num" id="cdHours">00</div>
+              <div class="cd-label">ساعة</div>
+            </div>
+            <div class="cd-unit">
+              <div class="cd-num" id="cdMinutes">00</div>
+              <div class="cd-label">دقيقة</div>
+            </div>
+            <div class="cd-unit">
+              <div class="cd-num" id="cdSeconds">00</div>
+              <div class="cd-label">ثانية</div>
+            </div>
+          </div>
+
+          <div class="exam-date">
+            <i class="fa-solid fa-calendar-day"></i>
+            <span>التاريخ التقريبي: 7 حزيران (يونيو) 2027</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== الإحصائيات ===== -->
+  <section class="stats" style="padding: 40px 0;">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-num">+18</div>
+          <div class="stat-label">كتاب PDF لكل المواد</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">+200</div>
+          <div class="stat-label">سؤال دورات سابقة</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">2</div>
+          <div class="stat-label">فرعان (علمي / أدبي)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">محتوى مجاني للطلاب</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== قسم الكتب ===== -->
+  <section class="books" id="books">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow"><i class="fa-solid fa-book-bookmark"></i> مكتبة الكتب</span>
+        <h2>كتب البكالوريا بصيغة PDF</h2>
+        <p>حمّل واقرأ كتب جميع المواد للفرعين العلمي والأدبي. الأماكن جاهزة، وسيتم إضافة روابط التحميل والقراءة المباشرة قريباً.</p>
+      </div>
+
+      <!-- تبويبات الفروع -->
+      <div class="tabs">
+        <button class="tab active" data-stream="all"><i class="fa-solid fa-layer-group"></i> جميع الكتب</button>
+        <button class="tab" data-stream="scientific"><i class="fa-solid fa-flask"></i> الفرع العلمي</button>
+        <button class="tab" data-stream="literary"><i class="fa-solid fa-feather"></i> الفرع الأدبي</button>
+      </div>
+
+      <!-- شبكة الكتب -->
+      <div class="books-grid" id="booksGrid">
+        <!-- سيتم ملؤها بالـ JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== قسم أسئلة الدورات ===== -->
+  <section class="questions" id="questions">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow"><i class="fa-solid fa-file-pen"></i> التدريب العملي</span>
+        <h2>أسئلة الدورات السابقة</h2>
+        <p>تدرّب على أسئلة الدورات الامتحانية السابقة لكل مادة. ستتم إضافة صور الأسئلة وحلولها لاحقاً مع إمكانية التحميل والمعاينة.</p>
+      </div>
+
+      <!-- فلترة المواد -->
+      <div class="q-filters" id="qFilters">
+        <button class="filter-chip active" data-subject="all">الكل</button>
+        <button class="filter-chip" data-subject="math">رياضيات</button>
+        <button class="filter-chip" data-subject="physics">فيزياء</button>
+        <button class="filter-chip" data-subject="chemistry">كيمياء</button>
+        <button class="filter-chip" data-subject="arabic">لغة عربية</button>
+        <button class="filter-chip" data-subject="philosophy">فلسفة</button>
+        <button class="filter-chip" data-subject="english">لغة إنجليزية</button>
+      </div>
+
+      <div class="q-grid" id="qGrid">
+        <!-- سيتم ملؤها بالـ JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== قسم المزايا ===== -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow"><i class="fa-solid fa-star"></i> لماذا دليلي؟</span>
+        <h2>منصة صُممت لتنجح</h2>
+        <p>كل ما يحتاجه طالب البكالوريا في مكان واحد، بتصميم عربي احترافي وسريع وسهل الاستخدام.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-book-open"></i></div>
+          <h3>كتب PDF كاملة</h3>
+          <p>جميع كتب البكالوريا السورية للفرعين العلمي والأدبي متوفرة بصيغة PDF قابلة للقراءة والتحميل مباشرة من الموقع.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
+          <h3>مؤقت الامتحان</h3>
+          <p>مؤقت تنازلي دقيق يعرض الوقت المتبقي لامتحان البكالوريا 2027 بالأيام والساعات والدقائق والثواني.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-file-pen"></i></div>
+          <h3>أسئلة الدورات</h3>
+          <p>أرشيف من أسئلة الدورات الامتحانية السابقة مع الحلول، لمساعدتك على فهم نمط الأسئلة والاستعداد الأمثل.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+          <h3>يعمل على كل الأجهزة</h3>
+          <p>تصميم متجاوب يعمل بسلاسة على الهاتف والتابلت والحاسوب، مع إمكانية تحويله إلى تطبيق مستقل لاحقاً.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>سريع وخفيف</h3>
+          <p>موقع خفيف وسريع التحميل حتى على الاتصالات الضعيفة، مصمم ليمنحك تجربة استخدام مثالية دون تعقيد.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-gift"></i></div>
+          <h3>مجاني بالكامل</h3>
+          <p>كل المحتوى متاح مجاناً لطلاب البكالوريا السورية دون أي اشتراكات أو رسوم، لأن المعرفة حق للجميع.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== شريط CTA ===== -->
+  <section style="padding: 40px 0 80px;">
+    <div class="container">
+      <div class="cta-band">
+        <h2>جاهز لبدء رحلة التفوق؟</h2>
+        <p>ابدأ بتصفّح الكتب وأسئلة الدورات الآن، واجعل من كل دقيقة فرصة للتقدّم نحو هدفك في البكالوريا 2027.</p>
+        <a href="#books" class="btn btn-primary">
+          <i class="fa-solid fa-rocket"></i>
+          ابدأ الآن مجاناً
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== التذييل ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="logo">
+            <span class="logo-mark"><i class="fa-solid fa-book-open-reader"></i></span>
+            <span>دليلي</span>
+          </a>
+          <p>منصة تعليمية مجانية لطلاب البكالوريا السورية، توفر الكتب وأسئلة الدورات ومؤقت الامتحان في مكان واحد.</p>
+          <div class="social">
+            <a href="#" aria-label="تيليجرام"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" aria-label="فيسبوك"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="إنستغرام"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="يوتيوب"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#books">الكتب</a></li>
+            <li><a href="#questions">أسئلة الدورات</a></li>
+            <li><a href="#features">المزايا</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>الفروع</h4>
+          <ul>
+            <li><a href="#books">الفرع العلمي</a></li>
+            <li><a href="#books">الفرع الأدبي</a></li>
+            <li><a href="#books">المواد المشتركة</a></li>
+            <li><a href="#books">دورات سابقة</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>تواصل معنا</h4>
+          <ul>
+            <li><a href="#"><i class="fa-solid fa-envelope" style="margin-left: 6px;"></i> البريد الإلكتروني</a></li>
+            <li><a href="#"><i class="fa-brands fa-telegram" style="margin-left: 6px;"></i> قناة تيليجرام</a></li>
+            <li><a href="#"><i class="fa-solid fa-circle-question" style="margin-left: 6px;"></i> الأسئلة الشائعة</a></li>
+            <li><a href="#"><i class="fa-solid fa-shield-halved" style="margin-left: 6px;"></i> سياسة الاستخدام</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 <strong>دليلي</strong> — جميع الحقوق محفوظة. صُنع بشغف لطلاب البكالوريا السورية.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- زر العودة للأعلى -->
+  <button class="to-top" id="toTop" aria-label="العودة للأعلى">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    /* =========================================
+       1) قائمة الكتب (البيانات)
+       سيتم لاحقاً استبدال الـ PDF بروابط حقيقية
+       ========================================= */
+    const books = [
+      // --- الفرع العلمي ---
+      { name: 'الرياضيات', stream: 'scientific', streamLabel: 'علمي', icon: 'fa-square-root-variable', cover: 'cover-1', pages: 320, level: 'ثالث ثانوي' },
+      { name: 'الفيزياء', stream: 'scientific', streamLabel: 'علمي', icon: 'fa-atom', cover: 'cover-2', pages: 280, level: 'ثالث ثانوي' },
+      { name: 'الكيمياء', stream: 'scientific', streamLabel: 'علمي', icon: 'fa-flask', cover: 'cover-3', pages: 260, level: 'ثالث ثانوي' },
+      { name: 'الأحياء', stream: 'scientific', streamLabel: 'علمي', icon: 'fa-dna', cover: 'cover-4', pages: 240, level: 'ثالث ثانوي' },
+      { name: 'اللغة العربية', stream: 'scientific', streamLabel: 'علمي', icon: 'fa-book-quran', cover: 'cover-5', pages: 200, level: 'ثالث ثانوي' },
+      { name: 'اللغة الإنجليزية', stream: 'scientific', streamLabel: 'علمي', icon: 'fa-language', cover: 'cover-6', pages: 180, level: 'ثالث ثانوي' },
+      { name: 'اللغة الفرنسية', stream: 'scientific', streamLabel: 'علمي', icon: 'fa-comments', cover: 'cover-7', pages: 160, level: 'ثالث ثانوي' },
+      { name: 'التربية الإسلامية', stream: 'scientific', streamLabel: 'علمي', icon: 'fa-mosque', cover: 'cover-8', pages: 140, level: 'ثالث ثانوي' },
+      { name: 'الثقافة العامة', stream: 'scientific', streamLabel: 'علمي', icon: 'fa-globe', cover: 'cover-9', pages: 120, level: 'ثالث ثانوي' },
+
+      // --- الفرع الأدبي ---
+      { name: 'اللغة العربية', stream: 'literary', streamLabel: 'أدبي', icon: 'fa-book-quran', cover: 'cover-5', pages: 220, level: 'ثالث ثانوي' },
+      { name: 'الفلسفة', stream: 'literary', streamLabel: 'أدبي', icon: 'fa-brain', cover: 'cover-4', pages: 280, level: 'ثالث ثانوي' },
+      { name: 'التاريخ', stream: 'literary', streamLabel: 'أدبي', icon: 'fa-landmark', cover: 'cover-1', pages: 240, level: 'ثالث ثانوي' },
+      { name: 'الجغرافيا', stream: 'literary', streamLabel: 'أدبي', icon: 'fa-map-location-dot', cover: 'cover-6', pages: 200, level: 'ثالث ثانوي' },
+      { name: 'اللغة الإنجليزية', stream: 'literary', streamLabel: 'أدبي', icon: 'fa-language', cover: 'cover-7', pages: 180, level: 'ثالث ثانوي' },
+      { name: 'اللغة الفرنسية', stream: 'literary', streamLabel: 'أدبي', icon: 'fa-comments', cover: 'cover-8', pages: 160, level: 'ثالث ثانوي' },
+      { name: 'الرياضيات', stream: 'literary', streamLabel: 'أدبي', icon: 'fa-square-root-variable', cover: 'cover-3', pages: 150, level: 'ثالث ثانوي' },
+      { name: 'التربية الإسلامية', stream: 'literary', streamLabel: 'أدبي', icon: 'fa-mosque', cover: 'cover-9', pages: 140, level: 'ثالث ثانوي' },
+      { name: 'الثقافة العامة', stream: 'literary', streamLabel: 'أدبي', icon: 'fa-globe', cover: 'cover-2', pages: 120, level: 'ثالث ثانوي' },
+    ];
+
+    // روابط PDF ستُضاف لاحقاً — حالياً placeholders
+    const PDF_OPEN_LINK = '#';   // رابط فتح PDF داخل الموقع
+    const PDF_DOWNLOAD_LINK = '#'; // رابط تحميل PDF
+
+    function renderBooks(filter = 'all') {
+      const grid = document.getElementById('booksGrid');
+      const filtered = filter === 'all' ? books : books.filter(b => b.stream === filter);
+
+      grid.innerHTML = filtered.map(b => `
+        <article class="book-card">
+          <div class="book-cover ${b.cover}">
+            <span class="stream-tag">${b.streamLabel}</span>
+            <i class="fa-solid ${b.icon}"></i>
+            <div class="subject-name">${b.name}</div>
+          </div>
+          <div class="book-body">
+            <div>
+              <div class="book-title">${b.name}</div>
+              <div class="book-meta">
+                <span><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                <span><i class="fa-solid fa-file-lines"></i> ${b.pages} صفحة</span>
+                <span><i class="fa-solid fa-graduation-cap"></i> ${b.level}</span>
+              </div>
+            </div>
+            <div class="book-actions">
+              <a href="${PDF_OPEN_LINK}" class="book-btn btn-open" data-book="${b.name}">
+                <i class="fa-solid fa-eye"></i> افتح
+              </a>
+              <a href="${PDF_DOWNLOAD_LINK}" class="book-btn btn-download" download data-book="${b.name}">
+                <i class="fa-solid fa-download"></i> تحميل
+              </a>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    renderBooks();
+
+    // تبديل الفروع
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        renderBooks(tab.dataset.stream);
+      });
+    });
+
+    /* =========================================
+       2) أسئلة الدورات (البيانات)
+       الأماكن جاهزة لإضافة صور الأسئلة لاحقاً
+       ========================================= */
+    const questions = [
+      { subject: 'math', subjectLabel: 'رياضيات', title: 'دورة 2025 - الرياضيات (علمي)', year: '2025', questions: 25, time: '3 ساعات', stream: 'علمي' },
+      { subject: 'math', subjectLabel: 'رياضيات', title: 'دورة 2024 - الرياضيات (علمي)', year: '2024', questions: 24, time: '3 ساعات', stream: 'علمي' },
+      { subject: 'physics', subjectLabel: 'فيزياء', title: 'دورة 2025 - الفيزياء', year: '2025', questions: 18, time: '3 ساعات', stream: 'علمي' },
+      { subject: 'physics', subjectLabel: 'فيزياء', title: 'دورة 2024 - الفيزياء', year: '2024', questions: 18, time: '3 ساعات', stream: 'علمي' },
+      { subject: 'chemistry', subjectLabel: 'كيمياء', title: 'دورة 2025 - الكيمياء', year: '2025', questions: 16, time: '3 ساعات', stream: 'علمي' },
+      { subject: 'arabic', subjectLabel: 'لغة عربية', title: 'دورة 2025 - اللغة العربية (أدبي)', year: '2025', questions: 12, time: '3 ساعات', stream: 'أدبي' },
+      { subject: 'arabic', subjectLabel: 'لغة عربية', title: 'دورة 2024 - اللغة العربية (أدبي)', year: '2024', questions: 12, time: '3 ساعات', stream: 'أدبي' },
+      { subject: 'philosophy', subjectLabel: 'فلسفة', title: 'دورة 2025 - الفلسفة', year: '2025', questions: 8, time: '3 ساعات', stream: 'أدبي' },
+      { subject: 'philosophy', subjectLabel: 'فلسفة', title: 'دورة 2024 - الفلسفة', year: '2024', questions: 8, time: '3 ساعات', stream: 'أدبي' },
+      { subject: 'english', subjectLabel: 'لغة إنجليزية', title: 'دورة 2025 - اللغة الإنجليزية', year: '2025', questions: 14, time: '3 ساعات', stream: 'مشترك' },
+      { subject: 'english', subjectLabel: 'لغة إنجليزية', title: 'دورة 2024 - اللغة الإنجليزية', year: '2024', questions: 14, time: '3 ساعات', stream: 'مشترك' },
+      { subject: 'math', subjectLabel: 'رياضيات', title: 'دورة 2023 - الرياضيات (أدبي)', year: '2023', questions: 20, time: '3 ساعات', stream: 'أدبي' },
+    ];
+
+    const Q_VIEW_LINK = '#';  // رابط معاينة صور الأسئلة (سيُضاف لاحقاً)
+
+    function renderQuestions(filter = 'all') {
+      const grid = document.getElementById('qGrid');
+      const filtered = filter === 'all' ? questions : questions.filter(q => q.subject === filter);
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">لا توجد أسئلة متاحة لهذا القسم حالياً.</p>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(q => `
+        <article class="q-card">
+          <div class="q-thumb">
+            <span class="q-year">${q.year}</span>
+            <div class="placeholder">
+              <i class="fa-regular fa-image"></i>
+              <span>صورة الأسئلة ستُضاف لاحقاً</span>
+            </div>
+          </div>
+          <div class="q-body">
+            <span class="q-subject"><i class="fa-solid fa-tag"></i> ${q.subjectLabel}</span>
+            <div class="q-title">${q.title}</div>
+            <div class="q-meta">
+              <span><i class="fa-solid fa-list-ol"></i> ${q.questions} سؤال</span>
+              <span><i class="fa-solid fa-clock"></i> ${q.time}</span>
+              <span><i class="fa-solid fa-user-graduate"></i> ${q.stream}</span>
+            </div>
+            <a href="${Q_VIEW_LINK}" class="q-link" data-q="${q.title}">
+              <i class="fa-solid fa-eye"></i> معاينة الأسئلة
+            </a>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    renderQuestions();
+
+    // فلترة أسئلة الدورات
+    document.querySelectorAll('.filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        renderQuestions(chip.dataset.subject);
+      });
+    });
+
+    /* =========================================
+       3) المؤقت التنازلي لامتحان البكالوريا 2027
+       التاريخ التقريبي: 7 حزيران 2027
+       ========================================= */
+    const EXAM_DATE = new Date('2027-06-07T08:00:00+03:00').getTime();
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = EXAM_DATE - now;
+
+      const elDays = document.getElementById('cdDays');
+      const elHours = document.getElementById('cdHours');
+      const elMinutes = document.getElementById('cdMinutes');
+      const elSeconds = document.getElementById('cdSeconds');
+
+      if (diff <= 0) {
+        elDays.textContent = '00';
+        elHours.textContent = '00';
+        elMinutes.textContent = '00';
+        elSeconds.textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      elDays.textContent = pad(days);
+      elHours.textContent = pad(hours);
+      elMinutes.textContent = pad(minutes);
+      elSeconds.textContent = pad(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    /* =========================================
+       4) قائمة الجوال + العودة للأعلى + التمرير
+       ========================================= */
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      const icon = navToggle.querySelector('i');
+      icon.className = navLinks.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    });
+
+    // إغلاق القائمة عند الضغط على أي رابط
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.querySelector('i').className = 'fa-solid fa-bars';
+      });
+    });
+
+    // زر العودة للأعلى
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) toTop.classList.add('show');
+      else toTop.classList.remove('show');
+    });
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* =========================================
+       5) تنبيه عند الضغط على أزرار غير مفعّلة
+       ========================================= */
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('[data-book], [data-q]');
+      if (link && link.getAttribute('href') === '#') {
+        e.preventDefault();
+        const name = link.dataset.book || link.dataset.q;
+        const msg = name
+          ? 'سيتم إضافة رابط "' + name + ' قريباً عند رفع الموقع للاستضافة.'
+          : 'سيتم إضافة الرابط قريباً.';
+        // إنشاء إشعار بسيط
+        showToast(msg);
+      }
+    });
+
+    function showToast(message) {
+      const existing = document.querySelector('.toast');
+      if (existing) existing.remove();
+
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = `
+        <i class="fa-solid fa-circle-info" style="margin-left: 8px; color: var(--accent-light);"></i>
+        <span>${message}</span>
+      `;
+      toast.style.cssText = `
+        position: fixed; bottom: 24px; right: 24px; left: 24px;
+        max-width: 420px; margin-inline: auto;
+        background: var(--primary-dark); color: #fff;
+        padding: 14px 20px; border-radius: 12px;
+        box-shadow: var(--shadow-lg); z-index: 2000;
+        font-size: 0.95rem; font-weight: 600;
+        display: flex; align-items: center;
+        animation: toastIn 0.3s ease;
+      `;
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.style.transition = 'opacity 0.3s, transform 0.3s';
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        setTimeout(() => toast.remove(), 300);
+      }, 3200);
+    }
+
+    // إضافة أنيميشن الإشعار
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes toastIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
